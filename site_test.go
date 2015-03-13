@@ -10,7 +10,7 @@ func Test_Hello(t *testing.T) {
 	fmt.Println("pass")
 }
 
-//func Test_Fail(t *testing.T) {
+func Test_Fail(t *testing.T) {
 
-//	t.Error("Baddly...")
-//}
+	t.Error("Baddly...")
+}
