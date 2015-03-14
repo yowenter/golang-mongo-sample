@@ -1,6 +1,4 @@
-image: dind-unzip
-env:
-  - GOPATH=/var/cache/daocloud
+image: go1.4
 script:
-#  - go build
-#  - go test -v
+  - go build
+  - go test -v
