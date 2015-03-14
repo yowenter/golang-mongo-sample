@@ -7,7 +7,7 @@ import (
 
 func Test_Hello(t *testing.T) {
 
-	fmt.Println("Pass")
+	fmt.Println("All is ok")
 }
 
 //func Test_Fail(t *testing.T) {
