@@ -1,6 +1,13 @@
-image: dind-unzip
+image: go1.4
 env:
   - GOPATH=/var/cache/daocloud
 script:
-#  - go build
-#  - go test -v
+ - go build
+ - go test -v
+
+email:
+  recipients:
+    - golfen.guo@daocloud.io
+    - it@daocloud.io
+  on_success: on
+  on_failure: on
