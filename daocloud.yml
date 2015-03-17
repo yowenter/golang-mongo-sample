@@ -15,3 +15,10 @@ script:
   - go get labix.org/v2/mgo
   - go install github.com/DaoCloud/golang-mongo-sample
   - go test github.com/DaoCloud/golang-mongo-sample
+
+email:
+  recipients:
+    - golfen.guo@daocloud.io
+    - it@daocloud.io
+  on_success: on
+  on_failure: on
