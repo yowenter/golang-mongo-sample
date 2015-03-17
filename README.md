@@ -1,11 +1,8 @@
-Hello World Application
+Golang Web Application with Mongo connection
 # Build Image
-docker build -t 192.168.1.36:5000/daocloud/hello .
-
-# Push Image to Registry
-docker push 192.168.1.36:5000/daocloud/hello
+docker build -t daocloud/go-mongo .
 
 # Run Container
-docker run -d -p 80:80 192.168.1.36:5000/daocloud/hello
+docker run -d -p 80:80 daocloud/go-mongo
 
 # That's it

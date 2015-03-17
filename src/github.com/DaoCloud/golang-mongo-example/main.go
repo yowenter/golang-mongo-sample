@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	. "github.com/DaoCloud/golang-mongo-sample"
 	"net/http"
 	"os"
 	"strings"
@@ -11,6 +12,7 @@ import (
 func main() {
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/env", env)
+	http.HandleFunc("/user", user)
 
 	fmt.Println("Start listening...")
 	go log()
@@ -41,4 +43,8 @@ func env(res http.ResponseWriter, req *http.Request) {
 
 		fmt.Fprintf(res, "[%d] %s : %v\n", index, name[0], name[1])
 	}
+}
+
+func user(res http.ResponseWriter, req *http.Request) {
+	fmt.Fprintln(res, GetResult())
 }
