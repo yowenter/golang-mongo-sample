@@ -1,7 +1,6 @@
-package sample_test
+package main
 
 import (
-	. "github.com/DaoCloud/golang-mongo-sample"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

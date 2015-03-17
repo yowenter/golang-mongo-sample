@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	. "github.com/DaoCloud/golang-mongo-sample"
 	"net/http"
 	"os"
 	"strings"
