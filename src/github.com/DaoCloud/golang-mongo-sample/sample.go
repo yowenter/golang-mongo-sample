@@ -30,14 +30,14 @@ func GetResult() string {
 
 	// Drop Database
 	if IsDrop {
-		err = session.DB("test").DropDatabase()
+		err = session.DB(os.Getenv("MONGO_NAME")).DropDatabase()
 		if err != nil {
 			panic(err)
 		}
 	}
 
 	// Collection People
-	c := session.DB("test").C("people")
+	c := session.DB(os.Getenv("MONGO_NAME")).C("people")
 
 	// Index
 	index := mgo.Index{
