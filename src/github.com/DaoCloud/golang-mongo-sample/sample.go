@@ -21,7 +21,7 @@ var (
 )
 
 func GetResult() string {
-	session, err := mgo.Dial(os.Getenv("MONGO_HOST"))
+	session, err := mgo.Dial(os.Getenv("MONGO_CONN"))
 	if err != nil {
 		panic(err)
 	}

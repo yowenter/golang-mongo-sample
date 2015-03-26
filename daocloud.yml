@@ -4,7 +4,7 @@ services:
   - mongodb
 
 env:
-  - MONGO_HOST=mongodb
+  - MONGO_CONN=mongodb
   - MONGO_NAME=test
 
 script:
