@@ -15,7 +15,7 @@ func main() {
 
 	fmt.Println("Start listening...")
 	go log()
-	err := http.ListenAndServe(":8088", nil)
+	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		panic(err)
 	}
