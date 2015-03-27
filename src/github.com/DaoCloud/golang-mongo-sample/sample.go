@@ -21,6 +21,8 @@ var (
 )
 
 func GetResult() string {
+	os.Setenv("MONGO_CONN", "admin:rOZfPLydW@192.168.1.59:49187")
+	os.Setenv("MONGO_NAME", "gf")
 	session, err := mgo.Dial(os.Getenv("MONGO_CONN"))
 	if err != nil {
 		panic(err)
