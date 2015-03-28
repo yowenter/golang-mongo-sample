@@ -11,7 +11,6 @@ import (
 func main() {
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/env", env)
-	http.HandleFunc("/user", user)
 
 	fmt.Println("Start listening...")
 	go log()
@@ -24,12 +23,12 @@ func main() {
 func log() {
 	for {
 		time.Sleep(30 * time.Second)
-		fmt.Println("Hello World!")
+		fmt.Println("Hello World !")
 	}
 }
 
 func hello(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintln(res, "Hello World!")
+	fmt.Fprintln(res, "Hello World %s!", GetResult())
 }
 
 func env(res http.ResponseWriter, req *http.Request) {
@@ -42,8 +41,4 @@ func env(res http.ResponseWriter, req *http.Request) {
 
 		fmt.Fprintf(res, "[%d] %s : %v\n", index, name[0], name[1])
 	}
-}
-
-func user(res http.ResponseWriter, req *http.Request) {
-	fmt.Fprintln(res, GetResult())
 }

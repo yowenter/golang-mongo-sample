@@ -3,9 +3,10 @@ image: go1.4
 services:
   - mongodb
 
-env:
-  - MONGO_CONN=mongodb
-  - MONGO_NAME=test
+# using default docker-link env
+#env:
+#  - MONGODB_PORT_27017_TCP_ADDR=mongodb
+#  - MONGODB_PORT_27017_TCP_PORT=27017
 
 script:
   - export GOPATH=$PWD

@@ -21,7 +21,38 @@ var (
 )
 
 func GetResult() string {
-	session, err := mgo.Dial(os.Getenv("MONGO_CONN"))
+	conn := ""
+	if len(os.Getenv("MONGODB_USERNAME")) > 0 {
+		conn += os.Getenv("MONGODB_USERNAME")
+
+		if len(os.Getenv("MONGODB_PASSWORD")) > 0 {
+			conn += ":" + os.Getenv("MONGODB_PASSWORD")
+		}
+
+		conn += "@"
+	}
+
+	if len(os.Getenv("MONGODB_PORT_27017_TCP_ADDR")) > 0 {
+		conn += os.Getenv("MONGODB_PORT_27017_TCP_ADDR")
+	} else {
+		conn += "localhost"
+	}
+
+	if len(os.Getenv("MONGODB_PORT_27017_TCP_PORT")) > 0 {
+		conn += ":" + os.Getenv("MONGODB_PORT_27017_TCP_PORT")
+	} else {
+		conn += ":27017"
+	}
+	// defaultly using "test" as the db instance
+	db := "test"
+
+	if len(os.Getenv("MONGODB_INSTANCE_NAME")) > 0 {
+		db = os.Getenv("MONGODB_INSTANCE_NAME")
+	}
+
+	conn += "/" + db
+
+	session, err := mgo.Dial(conn)
 	if err != nil {
 		panic(err)
 	}
@@ -30,14 +61,14 @@ func GetResult() string {
 
 	// Drop Database
 	if IsDrop {
-		err = session.DB(os.Getenv("MONGO_NAME")).DropDatabase()
+		err = session.DB(db).DropDatabase()
 		if err != nil {
 			panic(err)
 		}
 	}
 
 	// Collection People
-	c := session.DB(os.Getenv("MONGO_NAME")).C("people")
+	c := session.DB(db).C("people")
 
 	// Index
 	index := mgo.Index{
