@@ -8,7 +8,6 @@ ADD . /gopath/app/
 
 RUN go get github.com/DaoCloud/golang-mongo-sample
 RUN go install github.com/DaoCloud/golang-mongo-sample
-RUN /gopath/app/bin/golang-mongo-sample
 
 EXPOSE 80
 CMD ["/gopath/app/bin/golang-mongo-sample"]
