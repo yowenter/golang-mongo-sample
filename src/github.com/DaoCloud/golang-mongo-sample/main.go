@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	log()
 	http.HandleFunc("/", hello)
 	http.HandleFunc("/env", env)
 
@@ -22,8 +23,8 @@ func main() {
 
 func log() {
 	for {
-		time.Sleep(30 * time.Second)
-		fmt.Println("Hello World !")
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println("Hello World !" + time.Now().String())
 	}
 }
 
